@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Выбор даты</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body class="page">
-    <h3 class="title">Выберите дату дедлайна</h3>
-    <input class="calendar" type="date" id="datePicker" />
-    <button class="submit" onclick="sendDate()">Выбрать</button>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Выбор даты</title>
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body class="page">
+		<h3 class="title">Выберите дату дедлайна</h3>
+		<input class="calendar" type="date" id="datePicker" />
+		<button class="submit">Выбрать</button>
 
-    <script>
-      const tg = window.Telegram.WebApp;
-      tg.expand();
-      function sendDate() {
-        const date = document.getElementById("datePicker").value;
-        if (!date) return;
-        const parts = date.split("-");
-        const formatted = `${parts[2]}.${parts[1]}.${parts[0]}`;
-        tg.sendData(formatted);
-      }
-    </script>
-  </body>
+		<script>
+			const button = document.querySelector(".submit");
+			button.addEventListener("click", sendDate);
+			const tg = window.Telegram.WebApp;
+			tg.expand();
+			function sendDate() {
+				const date = document.getElementById("datePicker").value;
+				if (!date) return;
+				const parts = date.split("-");
+				const formatted = `${parts[2]}.${parts[1]}.${parts[0]}`;
+				tg.sendData(formatted);
+			}
+		</script>
+	</body>
 </html>
