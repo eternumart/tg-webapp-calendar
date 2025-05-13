@@ -18,9 +18,12 @@
 		<script>
 			flatpickr(".calendar", {
 				locale: "ru",
-				dateFormat: "d.m.Y",
-				inline: true
+				dateFormat: "d.m.Y H:i",
+				enableTime: true,
+				time_24hr: true,
+				inline: true,
 			});
+
 			const button = document.querySelector(".submit");
 			button.addEventListener("click", sendDate);
 			const tg = window.Telegram.WebApp;
@@ -31,14 +34,20 @@
 			console.log("🔍 initDataUnsafe:", tg.initDataUnsafe);
 
 			function sendDate() {
+				
 				const date = document.getElementById("calendar").value;
 				if (!date) return;
 
 				const parts = date.split("-");
-				//const formatted = `${parts[2]}.${parts[1]}.${parts[0]}`;
-				const formatted = parts[0];
-				console.log("📤 Отправка даты в Telegram:", formatted);
-				tg.sendData(formatted);
+				
+				const formatted = parts[0].split(" ");
+				const result = {
+					time: formatted[1],
+					date: formatted[0],
+				}
+
+				console.log("📤 Отправка даты в Telegram:", result);
+				tg.sendData(result);
 			}
 		</script>
 	</body>
