@@ -45,7 +45,7 @@
 				};
 
 				console.log("📤 Отправка даты в Telegram:", result);
-				tg.sendData(result);
+				tg.sendData(JSON.stringify(result));
 			}
 		</script>
 	</body>
