@@ -34,17 +34,15 @@
 			console.log("🔍 initDataUnsafe:", tg.initDataUnsafe);
 
 			function sendDate() {
-				
 				const date = document.getElementById("calendar").value;
 				if (!date) return;
-
 				const parts = date.split("-");
-				
+
 				const formatted = parts[0].split(" ");
 				const result = {
 					time: formatted[1],
 					date: formatted[0],
-				}
+				};
 
 				console.log("📤 Отправка даты в Telegram:", result);
 				tg.sendData(result);
