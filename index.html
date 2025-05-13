@@ -35,7 +35,8 @@
 				if (!date) return;
 
 				const parts = date.split("-");
-				const formatted = `${parts[2]}.${parts[1]}.${parts[0]}`;
+				//const formatted = `${parts[2]}.${parts[1]}.${parts[0]}`;
+				const formatted = parts[0];
 				console.log("📤 Отправка даты в Telegram:", formatted);
 				tg.sendData(formatted);
 			}
