@@ -43,6 +43,20 @@
     color: #fff;
 }
 
+.flatpickr-time input {
+    font-size: 18px;
+}
+
+.flatpickr-days {
+    width: 100% !important;
+}
+
+.dayContainer {
+    width: 100% !important;
+    max-width: unset !important;
+    min-width: unset !important;
+}
+
 @media screen and (max-width: 480px) {
     .page {
         padding: 80px 60px;
